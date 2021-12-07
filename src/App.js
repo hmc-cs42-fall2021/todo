@@ -1,24 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import TodoList from "./TodoList";
+import InputBox from "./InputBox";
 
 function App() {
+  const initialItems = ["Task 1", "Task 2"];
+
+  const [items, setItems] = useState(initialItems);
+
+  function handleAddItem(task) {
+    console.log(`Add ${task}`);
+    setItems(items.concat(task));
+  }
+
+  function handleDeleteItem(task) {
+    console.log(`Delete ${task}`);
+    setItems(items.filter((t) => t !== task));
+  }
+
   return (
     <div className="App container">
-      <div className="row">
-        <form>
-          <input type="text" />
-          <label htmlFor="new-item">Add an item</label>
-        </form>
-      </div>
-      <ul className="collection with-header">
-        <li className="collection-header">
-          <h4>
-            Todo items
-            <span className="badge">2</span>
-          </h4>
-        </li>
-        <li className="collection-item">Item 1</li>
-        <li className="collection-item">Item 2</li>
-      </ul>
+      <InputBox addItem={handleAddItem} />
+      <TodoList tasks={items} deleteItem={handleDeleteItem} />
     </div>
   );
 }
