@@ -11,7 +11,7 @@ the [yarn](https://yarnpkg.com/getting-started/install) package manager.
 
 First, download the code. In the folder that contains the code,
 run the command `yarn install`, to install all the JavaScript library
-dependencies. You should need to do this step only once.
+dependencies. This step may take awhile, but you should need to do it only once.
 
 ## Running
 
